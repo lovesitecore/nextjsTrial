@@ -11,7 +11,7 @@ export async function getAllReleaseNotes(preview: boolean): Promise<ReleaseNote[
 
 
 function extractPosts({ data }: { data: ReleaseNoteList }) {
-    console.log(data);
+    console.log("Data: "+ data);
     return data.results.map((post: ReleaseNote) => {
       return post;
     });

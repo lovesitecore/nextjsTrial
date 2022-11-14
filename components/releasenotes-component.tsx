@@ -28,6 +28,7 @@ const ReleasenotesComponent = ({
     type,
     breakingChange,
 }: Props) => {
+    console.log("Link: " + linkToOriginReleaseNotes);
     return(
         
         <div className={
@@ -45,7 +46,8 @@ const ReleasenotesComponent = ({
                 Addno: {addno}<br/>
                 name: {name}<br/>
                 id: {id}<br/><br/>
-                <a href={linkToOriginReleaseNotes}>Read more</a> <br/>
+                
+                <a href="${linkToOriginReleaseNotes}">Read more</a> <br/>
             </p>
             {(breakingChange === true ? 
             <div className="breakingChange">BREAKING CHANGE</div> : " ")}
