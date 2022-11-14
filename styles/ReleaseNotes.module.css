@@ -1,0 +1,35 @@
+.releaseNotesCard {
+    margin: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    max-width: 1000px;
+  }
+.productTag{
+    border-radius: 8px;
+    padding: 2px 8px 6px 8px;
+    background-color: blueviolet;
+    color: white;
+    margin-right: 12px;
+
+  }
+
+.productTagInternal{
+    border-radius: 8px;
+    padding: 2px 8px 6px 8px;
+    background-color: teal;
+    color: white;
+    margin-right: 12px;
+  }
+
+.highlight{
+  background-color: lightgray;
+}
+
+.breakingChange{
+  background-color: red;
+}

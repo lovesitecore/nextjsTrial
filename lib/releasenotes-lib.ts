@@ -1,0 +1,18 @@
+import ReleaseNote, {ReleaseNoteList} from "../types/releaseNotes-type";
+import {fetchAPI} from "./api"
+import {ALL_RELEASENOTES_QUERY} from "../graphQl/releasenotes-query";
+
+
+export async function getAllReleaseNotes(preview: boolean): Promise<ReleaseNote[]> {
+    const data = await fetchAPI(`${ALL_RELEASENOTES_QUERY}`);
+    
+    return extractPosts(data.data);
+}
+
+
+function extractPosts({ data }: { data: ReleaseNoteList }) {
+    console.log(data);
+    return data.results.map((post: ReleaseNote) => {
+      return post;
+    });
+}
