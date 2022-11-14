@@ -47,7 +47,7 @@ const ReleasenotesComponent = ({
                 name: {name}<br/>
                 id: {id}<br/><br/>
                 
-                <a href="${linkToOriginReleaseNotes}">Read more</a> <br/>
+                <a href="${linkToOriginReleaseNotes}" className={rnstyles.readMore}>Read more</a> <br/>
             </p>
             {(breakingChange === true ? 
             <div className="breakingChange">BREAKING CHANGE</div> : " ")}
