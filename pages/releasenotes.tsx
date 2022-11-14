@@ -19,7 +19,8 @@ type Props = {
 }
 
 const ReleaseNotes = ({allReleaseNotes}: Props) => {
-  
+  console.log("Page - Link ("+ allReleaseNotes[0].title +"): " + allReleaseNotes[0].linktooriginreleasenotes);
+  console.log("Page - Link ("+ allReleaseNotes[1].title +"): " + allReleaseNotes[1].linktooriginreleasenotes);
   return (
     <div className={styles.container}>
       <Head>
@@ -43,7 +44,7 @@ const ReleaseNotes = ({allReleaseNotes}: Props) => {
           <ReleasenotesComponent
             id= {releaseNote.id}
             name= {releaseNote.name}
-            linkToOriginReleaseNotes= {releaseNote.linkToOriginReleaseNotes}
+            linktooriginreleasenotes= {releaseNote.linktooriginreleasenotes}
             hightlight= {releaseNote.highlight}
             addno= {releaseNote.addno}
             descriptionrt= {releaseNote.description}

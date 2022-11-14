@@ -1,7 +1,7 @@
 type ReleaseNote = {
   id: string
   name: string
-  linkToOriginReleaseNotes: string
+  linktooriginreleasenotes: string
   hightlight: string
   addno: string
   title: string

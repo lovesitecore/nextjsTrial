@@ -4,7 +4,7 @@ import rnstyles from '../styles/ReleaseNotes.module.css'
 type Props = {
     id: string
     name: string
-    linkToOriginReleaseNotes: string
+    linktooriginreleasenotes: string
     hightlight: boolean
     addno: string
     descriptionrt: string
@@ -18,7 +18,7 @@ type Props = {
 const ReleasenotesComponent = ({
     id,
     name,
-    linkToOriginReleaseNotes,
+    linktooriginreleasenotes,
     hightlight,
     addno,
     descriptionrt,
@@ -28,7 +28,7 @@ const ReleasenotesComponent = ({
     type,
     breakingChange,
 }: Props) => {
-    console.log("Link: " + linkToOriginReleaseNotes);
+    console.log("Link ("+ title +"): " + linktooriginreleasenotes);
     return(
         
         <div className={
@@ -47,7 +47,7 @@ const ReleasenotesComponent = ({
                 name: {name}<br/>
                 id: {id}<br/><br/>
                 
-                <a href="${linkToOriginReleaseNotes}" className={rnstyles.readMore}>Read more</a> <br/>
+                <a href={linktooriginreleasenotes} className={rnstyles.readMore}>Read more</a> <br/>
             </p>
             {(breakingChange === true ? 
             <div className="breakingChange">BREAKING CHANGE</div> : " ")}
