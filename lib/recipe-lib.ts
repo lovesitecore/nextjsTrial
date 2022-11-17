@@ -1,4 +1,4 @@
-import Recipe, {RecipeResults} from "../types/recipe-type";
+import Recipe, {RecipeResults} from "../types/Recipes/recipe-type";
 import {fetchAPI} from "./api"
 import {ALL_RECIPE_QUERY} from "../graphQl/recipe-query";
 

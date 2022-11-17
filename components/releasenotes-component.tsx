@@ -1,56 +1,69 @@
 import styles from '../styles/Home.module.css'
 import rnstyles from '../styles/ReleaseNotes.module.css'
+import ReleaseNote from '../types/ReleaseNotes/releaseNotes-type'
+import SitecoreProductInternal from '../types/ReleaseNotes/sitecoreProductInternal-type'
 
 type Props = {
-    id: string
-    name: string
-    linktooriginreleasenotes: string
-    hightlight: boolean
-    addno: string
-    descriptionrt: string
-    sitecoreProduct: string
-    sitecoreProductInternal: string
-    title: string
-    type: string
-    breakingChange: boolean
+    ReleaseNote: ReleaseNote
 }
 
 const ReleasenotesComponent = ({
-    id,
-    name,
-    linktooriginreleasenotes,
-    hightlight,
-    addno,
-    descriptionrt,
-    sitecoreProduct,
-    sitecoreProductInternal,
-    title,
-    type,
-    breakingChange,
+    ReleaseNote,
 }: Props) => {
-    console.log("Link ("+ title +"): " + linktooriginreleasenotes);
+    console.log("Link ("+ ReleaseNote.title +"): " + ReleaseNote.linktooriginreleasenotes);
+    //const a = ReleaseNote.sitecoreProductInternal.<SitecoreProductInternalResults>results;
+    const a = ReleaseNote.sitecoreProduct.results;
+    console.log("A" + a[0].name);
+    const publishDate = new Date (ReleaseNote.publishDate);
+    
     return(
         
         <div className={
             rnstyles.releaseNotesCard
-            + " " + (hightlight === true ? rnstyles.highlight : " ")
+            + " " + (ReleaseNote.highlight === true ? rnstyles.highlight : " ")
             }>
-            <h2>{title} &rarr;</h2>
+            {(ReleaseNote.breakingChange === true ? 
+                <div className={rnstyles.breakingChange}>BREAKING CHANGE</div> : " ")}
+
+            <h2>{ReleaseNote.title} &rarr;</h2>
+            
             <p>
-                <span className={rnstyles.productTag}>{sitecoreProduct}</span> <span className={rnstyles.productTagInternal}>{sitecoreProductInternal}</span>
+                {ReleaseNote.sitecoreProduct.results.map((sitecoreProduct: any)=>(
+                    <span key ={sitecoreProduct.id} className={rnstyles.productTag}>
+                        {sitecoreProduct.name}
+                    </span> 
+                ))}
+                {ReleaseNote.internalProduct.results.map((sitecoreProductInternal: any)=>(
+                    <span key ={sitecoreProductInternal.id} className={rnstyles.productTagInternal}>
+                        {sitecoreProductInternal.name}
+                    </span>
+                ))}
             </p>
+            
             <p>
-                Description: {descriptionrt}
+                {publishDate.toLocaleDateString([],{ year: 'numeric', month: 'short', day: 'numeric' })}
+            </p> 
+
+            <p>
+                Description: {ReleaseNote.description}
             </p>
-            <p>
-                Addno: {addno}<br/>
-                name: {name}<br/>
-                id: {id}<br/><br/>
+            
+            <p className={rnstyles.basicInfo}>
+                Release: {ReleaseNote.release}<br/>
+                Context: {ReleaseNote.context}<br/>
+                Addno: {ReleaseNote.addno}<br/>
+                name: {ReleaseNote.name}<br/>
+                id: {ReleaseNote.id}<br/><br/> 
                 
-                <a href={linktooriginreleasenotes} className={rnstyles.readMore}>Read more</a> <br/>
+
             </p>
-            {(breakingChange === true ? 
-            <div className={rnstyles.breakingChange}>BREAKING CHANGE</div> : " ")}
+            {(ReleaseNote.linktooriginreleasenotes != null ?
+                <p> 
+                    <a href={ReleaseNote.linktooriginreleasenotes} className={rnstyles.readMore}>Read more</a> <br/>
+                </p> : " "
+            )}
+            
+            
         </div>
         
     )

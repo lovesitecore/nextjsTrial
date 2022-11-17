@@ -32,9 +32,16 @@
 
 .breakingChange{
   background-color: red;
+  text-align: center;
+  color: white;
+  padding: 10px;
 }
 
 .readMore{
   color: teal;
   text-decoration: underline;
+}
+.basicInfo{
+  font-size: 10px;
+
 }

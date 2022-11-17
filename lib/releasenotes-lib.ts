@@ -1,4 +1,4 @@
-import ReleaseNote, {ReleaseNoteList} from "../types/releaseNotes-type";
+import ReleaseNote, {ReleaseNoteList} from "../types/ReleaseNotes/releaseNotes-type";
 import {fetchAPI} from "./api"
 import {ALL_RELEASENOTES_QUERY} from "../graphQl/releasenotes-query";
 

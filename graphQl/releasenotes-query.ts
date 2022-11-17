@@ -12,6 +12,8 @@ export const ALL_RELEASENOTES_QUERY = `{
         breakingChange
         highlight
         ##descriptionrt
+        release
+        publishDate
         sitecoreProduct{
           total
           results {
@@ -56,5 +58,4 @@ export const ALL_RELEASENOTES_QUERY = `{
     }
   }
   `;
-
 export default ALL_RELEASENOTES_QUERY

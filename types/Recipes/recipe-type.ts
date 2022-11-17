@@ -1,4 +1,4 @@
-import {MediaResults} from "./media" 
+import {MediaResults} from "../Basics/media" 
 
 type Recipe = {
     Title: string

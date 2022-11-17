@@ -4,7 +4,7 @@ import ReleasenotesComponent from '../components/releasenotes-component'
 import { getAllReleaseNotes } from '../lib/releasenotes-lib'
 import styles from '../styles/Home.module.css'
 import rnstyles from '../styles/ReleaseNotes.module.css'
-import ReleaseNote, {ReleaseNoteList} from '../types/releaseNotes-type'
+import ReleaseNote, {ReleaseNoteList} from '../types/ReleaseNotes/releaseNotes-type'
 
 
 export async function getStaticProps({ preview = false}){
@@ -19,8 +19,9 @@ type Props = {
 }
 
 const ReleaseNotes = ({allReleaseNotes}: Props) => {
-  console.log("Page - Link ("+ allReleaseNotes[0].title +"): " + allReleaseNotes[0].linktooriginreleasenotes);
-  console.log("Page - Link ("+ allReleaseNotes[1].title +"): " + allReleaseNotes[1].linktooriginreleasenotes);
+  console.log(allReleaseNotes);
+  //console.log("Page - Link ("+ allReleaseNotes[0].title +"): " + allReleaseNotes[0].linktooriginreleasenotes);
+  //console.log("Page - Link ("+ allReleaseNotes[1].title +"): " + allReleaseNotes[1].linktooriginreleasenotes);
   return (
     <div className={styles.container}>
       <Head>
@@ -41,18 +42,23 @@ const ReleaseNotes = ({allReleaseNotes}: Props) => {
         <div className={styles.grid}>
           
           {allReleaseNotes.map((releaseNote: any) => (
-          <ReleasenotesComponent
-            id= {releaseNote.id}
+              
+          <ReleasenotesComponent key={releaseNote.id}
+            ReleaseNote={releaseNote}
+            /*id= {releaseNote.id}
             name= {releaseNote.name}
             linktooriginreleasenotes= {releaseNote.linktooriginreleasenotes}
-            hightlight= {releaseNote.highlight}
+            highlight= {releaseNote.highlight}
             addno= {releaseNote.addno}
             descriptionrt= {releaseNote.description}
-            sitecoreProduct= 'XM Cloud'
-            sitecoreProductInternal= 'Pages'
+            sitecoreProduct= 'DUMMY XM Cloud'
+            sitecoreProductInternal= 'DUMMY Pages'
             title= {releaseNote.title}
-            type= 'Bugfix'
+            type= 'DUMMY Bugfix'
             breakingChange = {releaseNote.breakingChange}
+            description = 'DUMMY Description ABC'
+            context =  'DUMMY Context CDE'
+            releases = 'DUMMY Release 1.0.0.0.1.0.1.01'*/
           />
           ))}
         </div>
