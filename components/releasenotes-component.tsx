@@ -50,8 +50,8 @@ const ReleasenotesComponent = ({
                 <a href={linktooriginreleasenotes} className={rnstyles.readMore}>Read more</a> <br/>
             </p>
             {(breakingChange === true ? 
-            <div className="breakingChange">BREAKING CHANGE</div> : " ")}
-          </div>
+            <div className={rnstyles.breakingChange}>BREAKING CHANGE</div> : " ")}
+        </div>
         
     )
 }

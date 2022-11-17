@@ -1,18 +1,57 @@
 export const ALL_RELEASENOTES_QUERY = `{ 
-    data: allReleaseNotes
-    {
+    data: allReleaseNotes{
       total
-      results
-      {
-        id 
+      results {
+        id
         name
-        addno
-        breakingChange
-        context
-        highlight
-        linktooriginreleasenotes
         title
+        context
         description
+        addno
+        linktooriginreleasenotes
+        breakingChange
+        highlight
+        ##descriptionrt
+        sitecoreProduct{
+          total
+          results {
+            __typename
+            ... on SitecoreProducts {
+              id
+              name
+              productname
+              productDescription
+              abbreviation
+              productowner
+            }
+          }
+        }
+        internalProduct{
+          total
+          results {
+            __typename
+            ... on SitecoreProductsInternal {
+              id
+              name
+              productAbbreviationInternal
+              productNameInternal
+              productOwnerInteral
+            }
+          }
+        }
+        type
+        {
+          total
+          results {
+            __typename
+            ... on Changetype {
+              id
+              name
+              changeType
+              description
+            }
+          }
+        }
       }
     }
   }
