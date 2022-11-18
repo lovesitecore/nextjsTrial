@@ -11,9 +11,24 @@ export const ALL_RELEASENOTES_QUERY = `{
         linktooriginreleasenotes
         breakingChange
         highlight
-        ##descriptionrt
+        descriptionrt
         release
         publishDate
+        notesimage {
+          total
+          results {
+            id
+            name
+            description
+            fileHeight
+            fileId
+            fileName
+            fileSize
+            fileType
+            fileUrl
+            fileWidth
+          }
+        }
         sitecoreProduct{
           total
           results {
@@ -25,6 +40,17 @@ export const ALL_RELEASENOTES_QUERY = `{
               productDescription
               abbreviation
               productowner
+              sitecoreCloud {
+                total
+                results
+                {
+                  __typename
+                  ... on SitecoreCloud {
+                    id
+                    name
+                  } 
+              }
+            }
             }
           }
         }

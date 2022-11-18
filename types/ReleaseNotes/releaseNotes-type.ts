@@ -1,7 +1,9 @@
-import { MediaResults } from "../Basics/media"
+import { MediaResults } from "../Basics/media-type"
+import RTE from "../Basics/richText-type"
 import { ChangeTypeResults } from "./changeType-type"
 import { SitecoreProductResults } from "./sitecoreProduct-type"
 import { SitecoreProductInternalResults } from "./sitecoreProductInternal-type"
+import {PortableText} from '@portabletext/react'
 
 type ReleaseNote = {
   id: string
@@ -11,7 +13,7 @@ type ReleaseNote = {
   addno: string
   title: string
   description: string
-  descriptionrt: string
+  descriptionrt: RTE
   context: string
   highlight: boolean
   breakingChange: boolean

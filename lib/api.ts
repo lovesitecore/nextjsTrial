@@ -1,3 +1,5 @@
+import RTE from "../types/Basics/richText-type";
+
 export async function fetchAPI(query: string) {
   return fetch(process.env.SITECORE_ENDPOINT_URL as string, {
     method: "POST",
@@ -8,3 +10,13 @@ export async function fetchAPI(query: string) {
     body: JSON.stringify({ query }),
   }).then((response) => response.json());
 }
+
+/*export function parseRichText(richtext: any) : RTE {
+  const Renderer = require("prosemirror-to-html").Renderer;
+  const renderer = new Renderer();
+
+  return {
+    type: richtext.type,
+    content: renderer.render({richtext}),
+  }
+}*/

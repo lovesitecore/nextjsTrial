@@ -15,7 +15,10 @@ const ReleasenotesComponent = ({
     const a = ReleaseNote.sitecoreProduct.results;
     console.log("A" + a[0].name);
     const publishDate = new Date (ReleaseNote.publishDate);
-    
+    const json = ReleaseNote.descriptionrt?.content;
+    console.log("RTE json: " + json);
+    const Renderer = require("prosemirror-to-html-js").Renderer;
+    const renderer = new Renderer();
     return(
         
         <div className={
@@ -46,6 +49,7 @@ const ReleasenotesComponent = ({
 
             <p>
                 Description: {ReleaseNote.description}
+                DescriptionRt: toHTML(descriptionrt,{ })
             </p>
             
             <p className={rnstyles.basicInfo}>
