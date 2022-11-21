@@ -6,12 +6,11 @@ export const ALL_RELEASENOTES_QUERY = `{
         name
         title
         context
-        description
+        descriptionrt
         addno
         linktooriginreleasenotes
         breakingChange
         highlight
-        descriptionrt
         release
         publishDate
         notesimage {

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import ReleasenotesComponent from '../components/releasenotes-component'
+import ReleaseNotesComponent from '../components/ReleaseNotes/releasenotes-component'
 import { getAllReleaseNotes } from '../lib/releasenotes-lib'
 import styles from '../styles/Home.module.css'
 import rnstyles from '../styles/ReleaseNotes.module.css'
@@ -43,7 +43,7 @@ const ReleaseNotes = ({allReleaseNotes}: Props) => {
           
           {allReleaseNotes.map((releaseNote: any) => (
               
-          <ReleasenotesComponent key={releaseNote.id}
+          <ReleaseNotesComponent key={releaseNote.id}
             ReleaseNote={releaseNote}
             /*id= {releaseNote.id}
             name= {releaseNote.name}

@@ -1,13 +1,14 @@
-import styles from '../styles/Home.module.css'
-import rnstyles from '../styles/ReleaseNotes.module.css'
-import ReleaseNote from '../types/ReleaseNotes/releaseNotes-type'
-import SitecoreProductInternal from '../types/ReleaseNotes/sitecoreProductInternal-type'
+import styles from '../../styles/Home.module.css'
+import rnstyles from '../../styles/ReleaseNotes.module.css'
+import ReleaseNote from '../../types/ReleaseNotes/releaseNotes-type'
+import SitecoreProductInternal from '../../types/ReleaseNotes/sitecoreProductInternal-type'
+import ReleaseNotesDescriptionComponent from './releaseNotesDescription-component'
 
 type Props = {
     ReleaseNote: ReleaseNote
 }
 
-const ReleasenotesComponent = ({
+const ReleaseNotesComponent = ({
     ReleaseNote,
 }: Props) => {
     console.log("Link ("+ ReleaseNote.title +"): " + ReleaseNote.linktooriginreleasenotes);
@@ -15,8 +16,6 @@ const ReleasenotesComponent = ({
     const a = ReleaseNote.sitecoreProduct.results;
     console.log("A" + a[0].name);
     const publishDate = new Date (ReleaseNote.publishDate);
-    const json = ReleaseNote.descriptionrt?.content;
-    console.log("RTE json: " + json);
     const Renderer = require("prosemirror-to-html-js").Renderer;
     const renderer = new Renderer();
     return(
@@ -47,10 +46,8 @@ const ReleasenotesComponent = ({
                 {publishDate.toLocaleDateString([],{ year: 'numeric', month: 'short', day: 'numeric' })}
             </p> 
 
-            <p>
-                Description: {ReleaseNote.description}
-                DescriptionRt: toHTML(descriptionrt,{ })
-            </p>
+            <ReleaseNotesDescriptionComponent 
+                descriptionrt= {ReleaseNote.descriptionrt}/>
             
             <p className={rnstyles.basicInfo}>
                 Release: {ReleaseNote.release}<br/>
@@ -73,4 +70,4 @@ const ReleasenotesComponent = ({
     )
 }
 
-export default ReleasenotesComponent
+export default ReleaseNotesComponent

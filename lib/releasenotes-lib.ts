@@ -1,7 +1,6 @@
 import ReleaseNote, {ReleaseNoteList} from "../types/ReleaseNotes/releaseNotes-type";
 import {fetchAPI} from "./api"
 import {ALL_RELEASENOTES_QUERY} from "../graphQl/releasenotes-query";
-import RTE from "../types/Basics/richText-type";
 
 
 export async function getAllReleaseNotes(preview: boolean): Promise<ReleaseNote[]> {
@@ -17,9 +16,3 @@ function extractPosts({ data }: { data: ReleaseNoteList }) {
       return post;
     });
 }
-
-/*function parsePost(post: ReleaseNote): ReleaseNote {
-  return {
-
-  }
-}*/

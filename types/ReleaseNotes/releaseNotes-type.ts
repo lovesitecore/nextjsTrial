@@ -1,5 +1,4 @@
 import { MediaResults } from "../Basics/media-type"
-import RTE from "../Basics/richText-type"
 import { ChangeTypeResults } from "./changeType-type"
 import { SitecoreProductResults } from "./sitecoreProduct-type"
 import { SitecoreProductInternalResults } from "./sitecoreProductInternal-type"
@@ -12,8 +11,7 @@ type ReleaseNote = {
   hightlight: string
   addno: string
   title: string
-  description: string
-  descriptionrt: RTE
+  descriptionrt: string
   context: string
   highlight: boolean
   breakingChange: boolean
