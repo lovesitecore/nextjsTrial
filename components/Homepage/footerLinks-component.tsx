@@ -10,12 +10,10 @@ const FooterLinksComponent = ({menuResults}: Props) => {
     return(
         <div className='FooterLinks'>
             {menuResults.results.map((menu: Menu) => (
-          <div className='FooterLinksItem'>
-            Name: {menu.name}
-            Link: {menu.link}
-            Label: {menu.label}
-          </div>
-          ))}
+              <a className='FooterLinksItem'href={menu.link}>
+                {menu.label}
+              </a>
+            ))}
         </div>
         
     )

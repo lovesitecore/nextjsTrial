@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import HeaderComponent from '../components/Homepage/header-component'
 import styles from '../styles/Home.module.css'
+import stylesHp from '../styles/Homepage.module.css'
 import {getAllHomepage} from "../lib/Homepage/homepage-lib";
 import Homepage from "../types/Homepage/homepage-type";
 import FooterComponent from '../components/Homepage/footer-component';
@@ -42,13 +43,11 @@ const Homepage = ({allHomepage}: Props) => {
         <HeaderComponent 
           allHeaders={homepage.header}
         />
-        <div>My Header Component</div>
      
         <h1 className={styles.title}>
           {homepage.recipeTitle}
         </h1>
         <p>{homepage.recipeSectionText}</p>
-        <div>My Recipe List</div>
         {recipes.map((recipe: any) => (
           <RecipeComponent
               recipeTitle={recipe.Title}
@@ -61,32 +60,14 @@ const Homepage = ({allHomepage}: Props) => {
           />
           ))}
 
-        <div>My Footer</div>
-        
         <FooterComponent
           allFooters={homepage.footer}
         />
         
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          
-        </div>
+        
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://www.sitecore.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by Sitecore {' '}
-          
-        </a>
-      </footer>
+      
     </div>
   )
 }
