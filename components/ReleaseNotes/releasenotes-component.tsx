@@ -1,8 +1,8 @@
 import styles from '../../styles/Home.module.css'
 import rnstyles from '../../styles/ReleaseNotes.module.css'
 import ReleaseNote from '../../types/ReleaseNotes/releaseNotes-type'
-import SitecoreProductInternal from '../../types/ReleaseNotes/sitecoreProductInternal-type'
 import ReleaseNotesDescriptionComponent from './releaseNotesDescription-component'
+import ReleaseNotesDescriptionComponentRt from './releaseNotesDescriptionRt-component'
 
 type Props = {
     ReleaseNote: ReleaseNote
@@ -16,8 +16,7 @@ const ReleaseNotesComponent = ({
     const a = ReleaseNote.sitecoreProduct.results;
     console.log("A" + a[0].name);
     const publishDate = new Date (ReleaseNote.publishDate);
-    const Renderer = require("prosemirror-to-html-js").Renderer;
-    const renderer = new Renderer();
+
     return(
         
         <div className={
@@ -46,7 +45,7 @@ const ReleaseNotesComponent = ({
                 {publishDate.toLocaleDateString([],{ year: 'numeric', month: 'short', day: 'numeric' })}
             </p> 
 
-            <ReleaseNotesDescriptionComponent 
+            <ReleaseNotesDescriptionComponentRt 
                 descriptionrt= {ReleaseNote.descriptionrt}/>
             
             <p className={rnstyles.basicInfo}>

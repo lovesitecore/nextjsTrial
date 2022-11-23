@@ -1,5 +1,3 @@
-import RTE from "../types/Basics/richText-type";
-
 export async function fetchAPI(query: string) {
   return fetch(process.env.SITECORE_ENDPOINT_URL as string, {
     method: "POST",

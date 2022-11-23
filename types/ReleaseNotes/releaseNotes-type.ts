@@ -3,6 +3,7 @@ import { ChangeTypeResults } from "./changeType-type"
 import { SitecoreProductResults } from "./sitecoreProduct-type"
 import { SitecoreProductInternalResults } from "./sitecoreProductInternal-type"
 import {PortableText} from '@portabletext/react'
+import { JSONContent } from "@tiptap/core";
 
 type ReleaseNote = {
   id: string
@@ -11,7 +12,7 @@ type ReleaseNote = {
   hightlight: string
   addno: string
   title: string
-  descriptionrt: string
+  descriptionrt: JSONContent
   context: string
   highlight: boolean
   breakingChange: boolean
