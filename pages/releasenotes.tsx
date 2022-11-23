@@ -10,7 +10,11 @@ import ReleaseNote, {ReleaseNoteList} from '../types/ReleaseNotes/releaseNotes-t
 export async function getStaticProps({ preview = false}){
   const allReleaseNotes = await getAllReleaseNotes(preview);
   return{
-      props: {allReleaseNotes, preview}
+      props: {allReleaseNotes, preview},
+      // Next.js will attempt to re-generate the page:
+      // - When a request comes in
+      // - At most once every 10 seconds
+      revalidate: 10, //in seconds
   }
 }
 

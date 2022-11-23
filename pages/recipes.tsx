@@ -10,7 +10,11 @@ import {getAllRecipes} from "../lib/recipe-lib";
 export async function getStaticProps({ preview = false}){
     const allRecipes = await getAllRecipes(preview);
     return{
-        props: {allRecipes, preview}
+        props: {allRecipes, preview},
+        // Next.js will attempt to re-generate the page:
+        // - When a request comes in
+        // - At most once every 10 seconds
+        revalidate: 10, //in seconds
     }
 }
 
