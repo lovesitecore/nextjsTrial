@@ -1,39 +1,25 @@
+import { getAllHeader } from '../../lib/Homepage/header-lib';
 import styles from '../styles/Home.module.css'
+import Header, {HeaderResults} from '../../types/Homepage/header-type'
+import NavigationComponent from './navigation-component';
+
+
 type Props = {
-    recipeTitle: string
-    id: string
-    name: string
-    ingredients: string
-    minutesToPrepare: string
-    preparationDescription: string
-    image: string
+    allHeaders: HeaderResults;
 }
 
-const Header = ({
-    recipeTitle,
-    id,
-    name,
-    ingredients,
-    minutesToPrepare,
-    preparationDescription,
-    image,
-}: Props) => {
+const HeaderComponent = ({allHeaders}: Props) => {
+    const header = allHeaders.results[0];
     return(
-        
-        <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>{recipeTitle} &rarr;</h2>
-            <p>
-                ({id})
-                <img width="100%" src={image}/> <br/>
-                Name: {name}<br/>
-                Ingredients: {ingredients}<br/>
-                Duration: {minutesToPrepare} min.<br/>
-                Description: {preparationDescription}<br/>
-                
-            </p>
-          </a>
+        <div className="Header">
+            Logo: {header.logo.results[0].fileUrl}
+            <NavigationComponent 
+                menuResults  = {header.menuItems}
+            />
+            Hero Image: {header.heroImage.results[0].fileUrl} 
+        </div>
         
     )
 }
 
-export default Header
+export default HeaderComponent
