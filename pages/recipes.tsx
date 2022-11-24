@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { CMS_NAME } from "../lib/constants";
-import RecipeComponent from "../components/recipe-component"; 
+import RecipeComponent from "../components/Recipe/recipe-component"; 
 import Recipe from "../types/Recipes/recipe-type";
 import {Media,MediaResults} from "../types/Basics/media-type";
 import {getAllRecipes} from "../lib/recipe-lib";
