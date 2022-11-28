@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import HeaderComponent from '../components/Homepage/header-component'
-import stylesHp from '../styles/Homepage.module.css'
+import stylesHp from '../styles/Homepage.module.css';
 import {getAllHomepage} from "../lib/Homepage/homepage-lib";
 import Homepage from "../types/Homepage/homepage-type";
 import FooterComponent from '../components/Homepage/footer-component';
@@ -11,7 +11,7 @@ import RecipeTeaserComponent from '../components/Recipe/recipeTeaser-component';
 export async function getStaticProps({ preview = false}){
   const allHomepage = await getAllHomepage(preview);
   return{
-      props: {allHomepage, preview},
+      props: {allHomepage,  preview},
       // Next.js will attempt to re-generate the page:
       // - When a request comes in
       // - At most once every 10 seconds
@@ -31,6 +31,7 @@ const Homepage = ({allHomepage}: Props) => {
   const homepage = allHomepage[0];
   const recipes = allHomepage[0].recipes.results;
   console.log(homepage);
+
   return (
     <div className={stylesHp.container}>
       <Head>
@@ -47,12 +48,13 @@ const Homepage = ({allHomepage}: Props) => {
           <h1 className={stylesHp.title}>
             {homepage.recipeTitle}
           </h1>
-          <p>{homepage.recipeSectionText}</p>
+          <p className={stylesHp.SectionDescription}>{homepage.recipeSectionText}</p>
         
           <RecipeTeaserComponent
             allRecipes={allHomepage[0].recipes}
           />
         </div>
+
       
         <FooterComponent
           allFooters={homepage.footer}

@@ -1,5 +1,6 @@
 import stylesHp from '../../styles/Homepage.module.css'
 import Recipe,{RecipeResults} from "../../types/Recipes/recipe-type";
+import Link from 'next/link'
 
 type Props = {
     allRecipes: RecipeResults;
@@ -9,6 +10,17 @@ const RecipeTeaserComponent = ({allRecipes}:Props) => {
     
     return(
         <div>
+            <style jsx>{`
+                    .button{
+                        padding: 10px;
+                        border-radius: 15px;
+                        border-color: #eaeaea;
+                        background-color: blueviolet;
+                        color: white;
+                      }
+
+                `}    
+            </style>
             {recipes.map((recipe: any) => (
                 <div className={stylesHp.boxOuter}>
                     <div className={stylesHp.box}>
@@ -18,7 +30,9 @@ const RecipeTeaserComponent = ({allRecipes}:Props) => {
                             {recipe.Description}
                         </p>
                         <p>
-                            <a href={recipe.name}>Read more</a>
+                            <button className={stylesHp.button}>
+                            <Link href={`/recipes/${encodeURIComponent(recipe.id)}`}>Read more</Link>
+                            </button>
                         </p>
                     </div>
                 </div>

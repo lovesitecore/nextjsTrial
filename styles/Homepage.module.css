@@ -4,10 +4,6 @@
   
   .main {
     min-height: 100vh;
-    padding: 0rem 0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
@@ -19,9 +15,10 @@
     border-top: 1px solid #eaeaea;
     justify-content: center;
     align-items: center;
-    background-color: #BCB7B3;
+    background-color: #212621;
     width: 100%;
     margin-top: 30px;
+    color: lightgray;
   }
   
   .footer a {
@@ -135,11 +132,13 @@
 
 
 .HeroImage {
-    margin-top: 42px;
+    margin-top: 0px;
 }
 
 .HeroImage img {
-    width: 100%
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
 }
 .Logo {
     float: left;
@@ -191,9 +190,47 @@
     margin: auto;
 }
 .header {
-    margin-top: 10px;
+    min-height: 23px;
+    padding-top: 30px;
+    padding-bottom: 40px;
 }
 .header .boxedContainer {
     
     margin-bottom: 10px;
+}
+
+.footerBox{
+  min-width: 500px;
+  
+}
+
+.footerBox p {
+  display: flex;
+    justify-content: center;
+}
+
+.footerBox image{
+  display: flex;
+    justify-content: center;
+}
+.footerBox a{
+  display: flex;
+    justify-content: center;
+}
+.button{
+  padding: 10px;
+  border-radius: 15px;
+  border-color: #eaeaea;
+  
+}
+.buttonExtra{
+  padding: 10px;
+  border-radius: 15px;
+  border-color: #eaeaea;
+  background-color: blueviolet;
+  color: white;
+}
+
+.SectionDescription {
+  text-align: center;
 }
