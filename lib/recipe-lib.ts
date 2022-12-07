@@ -9,35 +9,22 @@ export async function getAllRecipes(preview: boolean): Promise<Recipe[]> {
     return extractPosts(data.data);
 }
 
-export async function getRecipeById(id: string): Promise<RecipeResults> {
-  console.log('getRecipeById');
-  console.log('Id: ' + id);
-  const query = `{ 
+export async function getRecipeById(id: string): Promise<Recipe> {
+
+  const queryRecipe = `{ 
     data: recipe(id: "${id}")
     {
         ${RECIPE_QUERY}
     }
   }`;
-  console.log('query');
-  console.log(query);
-  const data = await fetchAPI(
-    `{ 
-      data: allRecipe(where: { id_eq: "${id}" })
-      {
-        __typename
-        total
-        results {
-          ${RECIPE_QUERY}
-        }
-      }
-    }`
-  );
-  console.log(data);
-  return extractPost(data.data);
+  
+  const data = await fetchAPI(queryRecipe);
+  return data.data.data;
+  //return extractPosts(data);
 }
 
 export async function getAllRecipeWithIds(): Promise<Recipe[]> {
-  console.log('getAllRecipeWithIds');
+
   const data = await fetchAPI(
     `{ 
       data: allRecipe(where: { id_neq : null } )
@@ -54,8 +41,6 @@ export async function getAllRecipeWithIds(): Promise<Recipe[]> {
 }
 
 function extractPosts({ data }: { data: RecipeResults }) {
-  console.log('extractPosts');
-    console.log(data);
     return data.results.map((post: Recipe) => {
       return post;
     });
