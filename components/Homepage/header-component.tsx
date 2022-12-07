@@ -22,9 +22,7 @@ const HeaderComponent = ({allHeaders}: Props) => {
                 </div>
                 
             </div>
-            <div className={stylesHp.HeroImage}>
-                    <img src={header.heroImage.results[0].fileUrl} />
-            </div>
+            
         </div>
         
     )

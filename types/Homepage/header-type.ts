@@ -4,7 +4,6 @@ import { MenuResults } from "./menu-type"
 type Header = {
     id: string
     name: string
-    heroImage: MediaResults
     logo: MediaResults
     menuItems: MenuResults
   }

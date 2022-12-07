@@ -1,8 +1,15 @@
+import MEDIA_QUERY from "../Basic/media-query";
+
 export const ALL_HOMEPAGE_QUERY = `{ 
   data: allHomepage {
     results{
       id
       name
+      heroBanner {
+        results{
+          ${MEDIA_QUERY}
+        }
+      }
       header {
         total
         results {
@@ -10,34 +17,10 @@ export const ALL_HOMEPAGE_QUERY = `{
         	... on Header {
 						id
             name
-            heroImage {
-              total
-              results {
-                id
-                name
-                fileId
-                fileUrl
-                fileName
-                fileSize
-                description
-                fileHeight
-                fileWidth
-                fileType
-            	}
-          	}
-          	logo {
+            logo {
               total
             	results {
-                id
-                name
-                fileId
-                fileUrl
-                fileName
-                fileSize
-                description
-                fileHeight
-                fileWidth
-                fileType
+                ${MEDIA_QUERY}
               }
           	}
           	menuItems {
@@ -71,16 +54,7 @@ export const ALL_HOMEPAGE_QUERY = `{
             ImageList: image{
               total
               results{
-                id
-                name
-                fileName
-                fileUrl
-                description
-                fileWidth
-                fileHeight
-                fileId
-                fileSize
-                fileType
+                ${MEDIA_QUERY}
               }
             }
           }

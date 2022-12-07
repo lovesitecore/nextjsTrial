@@ -44,6 +44,9 @@ const Homepage = ({allHomepage}: Props) => {
         <HeaderComponent 
           allHeaders={homepage.header}
         />
+        <div className={stylesHp.HeroImage}>
+                    <img src={homepage.heroBanner?.results[0].fileUrl} />
+            </div>
         <div className={stylesHp.boxedContainer}>
           <h1 className={stylesHp.title}>
             {homepage.recipeTitle}
